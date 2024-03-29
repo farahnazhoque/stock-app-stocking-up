@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Tab 1
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+  
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          id="datetime"
+          presentation="date"
+          [(ngModel)]="selectedDate"
+          (ionChange)="onDateChange($event)"
+          max="{{today | date:'yyyy-MM-dd'}}"
+          [formatOptions]="{
+            date: {
+              weekday: 'short',
+              month: 'long',
+              day: '2-digit'
+            }
+          }"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  
+    <div *ngFor="let company of companies">
+      <ion-card class="data-cards">
+        <ion-card-header>
+          <ion-card-title style="color: aqua;">{{ company }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p style="color: greenyellow;" *ngFor="let price of dailyData[company]">{{ price }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+  

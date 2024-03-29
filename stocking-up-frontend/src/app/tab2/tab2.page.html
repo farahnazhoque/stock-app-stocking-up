@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Stock Prediction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Dropdown for selecting the company -->
+  <ion-item>
+    <ion-label>Company</ion-label>
+    <ion-select [(ngModel)]="company" (ionChange)="fetchData()">
+      <ion-select-option value="AAPL">Apple</ion-select-option>
+      <ion-select-option value="TSLA">Tesla</ion-select-option>
+      <ion-select-option value="AMZN">Amazon</ion-select-option>
+      <!-- Add more companies as needed -->
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Time Frame</ion-label>
+    <ion-select [(ngModel)]="timeFrame" (ionChange)="fetchData()">
+      <ion-select-option value="next day">Next Day</ion-select-option>
+      <ion-select-option value="next week">Next Week</ion-select-option>
+      <ion-select-option value="next month">Next Month</ion-select-option>
+      <ion-select-option value="next year">Next Year</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- ECharts chart container -->
+  <div echarts [options]="options" class="echart-container"></div>
+</ion-content>

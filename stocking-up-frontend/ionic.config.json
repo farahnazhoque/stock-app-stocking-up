@@ -1,0 +1,7 @@
+{
+  "name": "stocking-up-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
